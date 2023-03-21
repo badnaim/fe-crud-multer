@@ -7,8 +7,8 @@ import Moderator from "../pages/Moderator";
 import Settings from "../pages/Settings";
 import Orders from "../pages/Orders";
 import Sidebar from "./subcomponents/Sidebar";
+// import { addContext } from "../context/addContext";
 import "../styles/main.css";
-
 
 export default function Main() {
   return (

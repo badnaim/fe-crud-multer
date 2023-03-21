@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import AddProduct from "../components/subcomponents/Addproduct";
+import "../styles/dashboard.css";
 
 export default function Dashboard() {
   const [show, setShow] = useState(false);
@@ -9,16 +11,15 @@ export default function Dashboard() {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2 canvasBtn">
+      <Button variant="primary" onClick={handleShow} className="canvasBtn">
         Add product
       </Button>
-      <Offcanvas show={show} onHide={handleClose} placement={"end"} >
+      <Offcanvas show={show} onHide={handleClose} placement={"end"}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Add product</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <AddProduct />
         </Offcanvas.Body>
       </Offcanvas>
     </>
