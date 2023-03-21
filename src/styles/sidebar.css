@@ -1,0 +1,23 @@
+.sideBar {
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  padding-bottom: 30px;
+}
+
+.clicked {
+  background-color: aqua;
+}
+
+.menuBtn {
+  border: none;
+  margin-top: 30px;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}

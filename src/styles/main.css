@@ -1,0 +1,14 @@
+main {
+  width: 100vw;
+  display: flex;
+  /* justify-content:space-between ; */
+}
+
+.rightSec {
+  width: 80%;
+  height: auto;
+  background-color: rgb(203, 203, 203);
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
