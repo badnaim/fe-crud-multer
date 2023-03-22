@@ -23,17 +23,19 @@ export default function AddProduct() {
 
   return (
     <div>
-      {/* <label>name</label>
-      <input type="text" value={"name"} />
-      <label>price</label>
-      <input type="number" value={"price"} />
-      <label>stock</label>
-      <input type="number" value={"stock"} />
-      <label>specs</label>
-      <input type="text" value={"specs"} /> */}
-      <label>file</label>
-      <input type="file" onChange={changeHandler} />
-      <input type="button" onClick={uploadHandler} value={"Upload"} />
+      <form>
+        {/* <label>name</label>
+        <input type="text" />
+        <label>price</label>
+        <input type="number" />
+        <label>stock</label>
+        <input type="number" />
+        <label>specs</label>
+        <input type="text" /> */}
+        <label>file</label>
+        <input type="file" onChange={changeHandler} />
+        <input type="button" onClick={uploadHandler} value={"Upload"} />
+      </form>
       {/* <input type="number" value={"sale"} /> */}
       {/* <input type="text" value={"brand"} />
       <input type="text" value={"category"} />
