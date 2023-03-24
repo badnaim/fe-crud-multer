@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import AddProduct from "../components/subcomponents/Addproduct";
 import Img1 from "../images/Img1";
-import All from "../images/sidebar-images/All";
+import All from "../images/All";
+import SelectImg from "../images/SelectImg";
 import "../styles/products.css";
 
 export default function Products() {
@@ -17,16 +18,20 @@ export default function Products() {
   return (
     <div>
       <div>
-        <Button variant="primary" onClick={handleShow} className="canvasBtn">
+        <button variant="primary" onClick={handleShow} className="canvasBtn">
           <Img1 />
           Бараа нэмэх
-        </Button>
-        <button className="allButton">
-          <div>
-            <All />
-            Бүгд
-          </div>
         </button>
+        <select className="allButton">
+          {/* <All /> */}
+          <option>
+            Бүгд
+          </option>
+          <option>one</option>
+          <option>two</option>
+
+        </select>
+
         <Offcanvas show={show} onHide={handleClose} placement={"end"}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Add product</Offcanvas.Title>

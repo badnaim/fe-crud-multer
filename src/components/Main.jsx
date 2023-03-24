@@ -13,7 +13,7 @@ import "../styles/main.css";
 export default function Main() {
   return (
     <main>
-      <Sidebar />
+      <div className="leftSec"><Sidebar /></div>
       <div className="rightSec">
         <Routes>
           <Route path="/" element={<Dashboard />} />

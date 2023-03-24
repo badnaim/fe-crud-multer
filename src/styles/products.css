@@ -1,10 +1,14 @@
 .canvasBtn {
+  border-radius: 9px;
+  border: none;
+  color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   height: 38px;
-  width: 158px;
+  width: 150px;
   background-color: #003585;
+  margin-bottom: 20px;
 }
 
 .allButton {
@@ -12,9 +16,9 @@
   border: none;
   color: white;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-evenly; */
   align-items: center;
   height: 42px;
-  width: 248px;
+  width: 200px;
   background-color: #003585;
 }

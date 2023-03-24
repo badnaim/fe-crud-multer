@@ -1,14 +1,20 @@
 main {
   width: 100vw;
   display: flex;
-  /* justify-content:space-between ; */
+}
+
+.leftSec {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .rightSec {
   width: 80%;
-  height: auto;
   background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
+  height: auto;
+  padding-left: 30px;
   padding-top: 30px;
+  padding-bottom: 50px;
 }

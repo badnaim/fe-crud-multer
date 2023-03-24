@@ -1,11 +1,12 @@
 .sideBar {
   width: 250px;
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
+  position: absolute;
+  margin-top: 80px;
 }
 
 .clicked {
@@ -13,13 +14,18 @@
   background-color: #003585;
 }
 
+.sideBar button p {
+  margin: 0;
+}
+
 .menuBtn {
-  display: flex;
-  justify-content: space-evenly;
   border: none;
   margin-top: 30px;
   width: 188px;
-  height: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   border-radius: 10px;
   cursor: pointer;
 }
