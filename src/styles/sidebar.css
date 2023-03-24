@@ -1,22 +1,24 @@
 .sideBar {
-  width: 20%;
+  width: 250px;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
   padding-bottom: 30px;
 }
 
 .clicked {
-  background-color: aqua;
+  color: white;
+  background-color: #003585;
 }
 
 .menuBtn {
+  display: flex;
+  justify-content: space-evenly;
   border: none;
   margin-top: 30px;
-  width: 150px;
+  width: 188px;
   height: 30px;
   border-radius: 10px;
   cursor: pointer;
