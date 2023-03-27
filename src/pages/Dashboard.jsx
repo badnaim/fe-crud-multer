@@ -1,27 +1,38 @@
-import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
-// import "../styles/dashboard.css";
+import React, { useEffect } from "react";
+// import axios from "axios";
+import { useState } from "react";
+import Product from "../components/subcomponents/Product";
+import "../styles/dashboard.css";
 
 export default function Dashboard() {
   const [products, setProducts] = useState();
-  const [location, setLocation] = useState();
+  // const [location, setLocation] = useState();
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:4000/get").then((res) => setProducts(res.data));
-  //   console.log(setProducts);
+  // useEffect(async () => {
+  //   await axios.get("http://localhost:4000/getProducts").then((res) => {
+  //     // console.log(res.data.body);
+  //     setProducts(res.data.body);
+  //   }).catch(err => {
+  //     console.log(err);
+  //   });
   // }, []);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/nearrestaurant")
-      .then((res) => setLocation(res.data));
-    console.log(setLocation);
+    async function fetchProdData() {
+      let response = await fetch("http://localhost:4000/getProducts");
+      response = await response.json();
+      setProducts(JSON.stringify(response.body));
+    }
+    fetchProdData();
   }, []);
 
-  // fetch("http://localhost:4000/nearrestaurant", { method: "GET" }).then((res) =>
-  //   console.log(res)
-  // );
+  console.log("products", products);
 
-  return <div>{/* {products} */}</div>;
+  return <div className="dashBoard">
+
+    {/* {products.map((prod, { _id }) => (
+      <Product data={prod} key={_id} />
+    ))} */}
+
+  </div>;
 }
