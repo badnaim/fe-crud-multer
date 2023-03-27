@@ -5,11 +5,23 @@ import { useEffect, useState } from "react";
 
 export default function Dashboard() {
   const [products, setProducts] = useState();
+  const [location, setLocation] = useState();
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:4000/get").then((res) => setProducts(res.data));
+  //   console.log(setProducts);
+  // }, []);
+
   useEffect(() => {
-    axios.get("http://localhost:4000/get").then((res) => setProducts(res.data));
-    console.log(setProducts);
+    axios
+      .get("http://localhost:4000/nearrestaurant")
+      .then((res) => setLocation(res.data));
+    console.log(setLocation);
   }, []);
-  return (
-    <div>{products}</div>
-  );
+
+  // fetch("http://localhost:4000/nearrestaurant", { method: "GET" }).then((res) =>
+  //   console.log(res)
+  // );
+
+  return <div>{/* {products} */}</div>;
 }

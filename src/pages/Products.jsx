@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import AddProduct from "../components/subcomponents/Addproduct";
 import Img1 from "../images/Img1";
-import All from "../images/All";
-import SelectImg from "../images/SelectImg";
+// import All from "../images/All";
+// import SelectImg from "../images/SelectImg";
 import "../styles/products.css";
 
 export default function Products() {
@@ -24,12 +24,9 @@ export default function Products() {
         </button>
         <select className="allButton">
           {/* <All /> */}
-          <option>
-            Бүгд
-          </option>
+          <option>Бүгд</option>
           <option>one</option>
           <option>two</option>
-
         </select>
 
         <Offcanvas show={show} onHide={handleClose} placement={"end"}>
