@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import AddCategory from "../components/subcomponents/AddCategory";
 import AddProduct from "../components/subcomponents/Addproduct";
 import Img1 from "../images/Img1";
 // import All from "../images/All";
@@ -34,6 +35,7 @@ export default function Products() {
             <Offcanvas.Title>Add product</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
+            <AddCategory />
             <AddProduct />
           </Offcanvas.Body>
         </Offcanvas>
