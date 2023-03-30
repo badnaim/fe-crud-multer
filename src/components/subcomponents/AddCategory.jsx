@@ -4,7 +4,7 @@ import "../../styles/addCategory.css";
 export default function AddCategory() {
   const [categoryImage, setCategoryImage] = useState();
   const [categoryName, setCategoryName] = useState({
-    name: ""
+    name: "",
   });
 
   function nameHandler(e) {
@@ -21,7 +21,7 @@ export default function AddCategory() {
   console.log("ghj", JSON.stringify(categoryName));
 
   async function categoryUploader(e) {
-    // e.preventDefault();
+    e.preventDefault();
     const categData = new FormData();
     categData.append("file", categoryImage);
     categData.append("name", JSON.stringify(categoryName));
@@ -39,13 +39,25 @@ export default function AddCategory() {
     // }).then((res) => console.log(res));
   }
 
-
   return (
     <div className="addCategory">
       <form>
-        <input name="name" type="text" placeholder="category name" onChange={nameHandler} />
-        <input type="file" placeholder="category image" onChange={imageHandler} />
-        <input type="submit" value={"Create category"} onClick={categoryUploader} />
+        <input
+          name="name"
+          type="text"
+          placeholder="category name"
+          onChange={nameHandler}
+        />
+        <input
+          type="file"
+          placeholder="category image"
+          onChange={imageHandler}
+        />
+        <input
+          type="submit"
+          value={"Create category"}
+          onClick={categoryUploader}
+        />
       </form>
     </div>
   );
