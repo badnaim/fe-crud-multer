@@ -1,7 +1,9 @@
-import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
+import { useState, useEffect } from "react";
+// import Form from "react-bootstrap/Form";
 
 export default function AddProduct() {
+  const [categories, setCategories] = useState();
   const [file, setFile] = useState();
   const [data, setData] = useState({
     name: "",
@@ -12,7 +14,6 @@ export default function AddProduct() {
     category: "",
     description: "",
   });
-  // const [prod, setProd] = useState({});
 
   function handleChange(e) {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -38,6 +39,23 @@ export default function AddProduct() {
       // }
     }).then((res) => console.log(res));
   }
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/getCategories")
+      .then((res) => {
+        setCategories(res.data.body);
+        console.log(res.data.body);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log("fdsf", categories);
+
+  // const dob = categories.map((cat) => cat.name);
+  // console.log("dob", dob);
 
   return (
     <div>
@@ -78,12 +96,23 @@ export default function AddProduct() {
           placeholder="brand"
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="text"
           name="category"
           placeholder="category"
           onChange={handleChange}
-        />
+        /> */}
+
+        {/* <label>select category</label> */}
+        <select name="category" onChange={handleChange}>
+          <option disabled>select category</option>
+          {categories &&
+            categories.map((x, y) => (
+              <option onClick={() => console.log(x._id)} key={y}>
+                {x.name}
+              </option>
+            ))}
+        </select>
         <input
           type="text"
           name="description"

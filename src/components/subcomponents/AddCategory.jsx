@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import "../../styles/addCategory.css";
 
@@ -32,11 +33,12 @@ export default function AddCategory() {
     }).then((res) => {
       console.log(res, "res");
     });
-    // console.log("formdata", formData);
-    // fetch("http://localhost:4000/addCategory", {
-    // method: "POST",
-    // body: formData,
-    // }).then((res) => console.log(res));
+    // form input clear hiih ^^^^^^^
+
+    // useEffect(() => {
+    //   setCategoryImage((e.target.value = ""));
+    //   setCategoryName((e.target.value = ""));
+    // }, []);
   }
 
   return (
@@ -47,6 +49,7 @@ export default function AddCategory() {
           type="text"
           placeholder="category name"
           onChange={nameHandler}
+          // value={categoryName}
         />
         <input
           type="file"
