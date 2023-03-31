@@ -1,14 +1,19 @@
-
 import { useState } from "react";
 import "../../styles/addCategory.css";
 
 export default function AddCategory() {
   const [categoryImage, setCategoryImage] = useState();
-  const [categoryName, setCategoryName] = useState("");
+  const [categoryName, setCategoryName] = useState({
+    name: "",
+  });
 
   console.log(categoryName);
 
   // console.log("categoryName", JSON.stringify(categoryName));
+  function nameHandler(e) {
+    setCategoryName({ [e.target.name]: e.target.value });
+    console.log(categoryName);
+  }
 
   async function categoryUploader(e) {
     e.preventDefault();
@@ -24,27 +29,29 @@ export default function AddCategory() {
     });
     setCategoryName("");
     setCategoryImage("");
-
   }
 
   return (
     <div className="addCategory">
-      <input
-        type="text"
-        placeholder="category name"
-        onChange={(e) => setCategoryName(e.target.value)}
-        value={categoryName}
-      />
-      <input
-        type="file"
-        placeholder="category image"
-        onChange={(e) => setCategoryImage(e.target.files[0])}
-      />
-      <input
-        type="submit"
-        value={"Create category"}
-        onClick={categoryUploader}
-      />
+      <form>
+        <input
+          type="text"
+          name="name"
+          placeholder="category name"
+          onChange={nameHandler}
+          // value={categoryName}
+        />
+        <input
+          type="file"
+          placeholder="category image"
+          onChange={(e) => setCategoryImage(e.target.files[0])}
+        />
+        <input
+          type="submit"
+          value={"Create category"}
+          onClick={categoryUploader}
+        />
+      </form>
     </div>
   );
 }
