@@ -30,7 +30,7 @@ export default function AddProduct() {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("data", JSON.stringify(data));
-    console.log("uploading");
+    console.log("addproduct uploading");
     fetch("http://localhost:4000/addproduct", {
       method: "POST",
       body: formData,
@@ -52,7 +52,7 @@ export default function AddProduct() {
       });
   }, []);
 
-  console.log("fdsf", categories);
+  // console.log("fdsf", categories);
 
   // const dob = categories.map((cat) => cat.name);
   // console.log("dob", dob);
