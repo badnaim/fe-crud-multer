@@ -22,3 +22,30 @@
   width: 200px;
   background-color: #003585;
 }
+
+#lineInCanvas {
+  border-top: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.products {
+  width: 95%;
+}
+
+.productsIn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#searchInProds {
+  margin-top: 70px;
+}
+
+#searchInProds input {
+  width: 340px;
+  height: 35px;
+  padding-left: 20px; 
+  border-radius: 10px;
+  border: 1px solid rgb(167, 167, 167);
+}

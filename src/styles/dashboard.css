@@ -1,4 +1,37 @@
-.dashBoard {
+.fisrtFullDashboard {
+  width: 95%;
   height: auto;
-  width: 150px;
+}
+
+.fullDashboard {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.dbBoard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+div.card {
+  border: none;
+  height: auto;
+  width: 100%;
+  padding: 30px;
+}
+
+.flex {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px; 
+}
+.flex h5{
+  margin-bottom: 0;
+}
+
+.lineOfRoutes {
+  border-bottom: 0.5px solid gray;
+  margin-bottom: 20px;
 }

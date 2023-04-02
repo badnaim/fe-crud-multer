@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Product from "../components/subcomponents/Product";
 import "../styles/dashboard.css";
+import Imgs1 from "../images/sidebar-images/Imgs1.jsx";
 
 export default function Dashboard() {
   const [products, setProducts] = useState();
@@ -32,9 +33,18 @@ export default function Dashboard() {
   console.log("products", products);
 
   return (
-    <div className="dashBoard">
-      {products &&
-        products.map((prod, index) => <Product data={prod} key={index} />)}
+    <div className="fisrtFullDashboard">
+      <div className="flex">
+        <Imgs1 />
+        <h5>Хянах самбар</h5>
+      </div>
+      <div className="lineOfRoutes"></div>
+      <div className="fullDashboard">
+        <div className="dbBoard">
+          {products &&
+            products.map((prod, index) => <Product data={prod} key={index} />)}
+        </div>
+      </div>
     </div>
   );
 }

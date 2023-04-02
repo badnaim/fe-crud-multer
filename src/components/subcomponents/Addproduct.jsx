@@ -15,16 +15,23 @@ export default function AddProduct() {
     description: "",
   });
 
-  function handleChange(e) {
-    setData({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
-  }
 
   function changeHandler(e) {
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   }
 
+  function handleChange(e) {
+    setData({ ...data, [e.target.name]: e.target.value });
+
+  }
+
+  function categChange(e) {
+    const chosenCategory = categories.find((categ) => categ.name === e.target.value);
+    console.log(chosenCategory._id);
+    setData({ ...data, category: `${chosenCategory._id}` });
+    // console.log(data);
+  }
   function uploadHandler(e) {
     e.preventDefault();
     const formData = new FormData();
@@ -37,7 +44,7 @@ export default function AddProduct() {
       // headers: {
       //   "content-Type":"multipart/form-data"
       // }
-    }).then((res) => console.log(res));
+    }).then((res) => console.log(res, "create product request sent"));
   }
 
   useEffect(() => {
@@ -45,74 +52,86 @@ export default function AddProduct() {
       .get("http://localhost:4000/getCategories")
       .then((res) => {
         setCategories(res.data.body);
-        console.log(res.data.body);
+        // console.log("c", categories);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // console.log("fdsf", categories);
-
-  // const dob = categories.map((cat) => cat.name);
-  // console.log("dob", dob);
-
   return (
     <div>
+      <div><h4>Create product</h4></div>
       <form>
+        <br />
+        <label>product name</label>
+        <br />
         <input
           type="text"
           name="name"
           placeholder="name"
           onChange={handleChange}
         />
+        <br />
+        <label>price</label>
+        <br />
         <input
           type="number"
           name="price"
           placeholder="price"
           onChange={handleChange}
         />
+        <br />
+        <label>stock</label>
+        <br />
         <input
           type="number"
           name="stock"
           placeholder="stock"
           onChange={handleChange}
         />
+        <br />
+        <label>sale %</label>
+        <br />
         <input
           type="number"
           name="sale"
           placeholder="sale"
           onChange={handleChange}
         />
+        <br />
+        <label>specs</label>
+        <br />
         <input
           type="text"
           name="specs"
           placeholder="specs"
           onChange={handleChange}
         />
+        <br />
+        <label>brand</label>
+        <br />
         <input
           type="text"
           name="brand"
           placeholder="brand"
           onChange={handleChange}
         />
-        {/* <input
-          type="text"
-          name="category"
-          placeholder="category"
-          onChange={handleChange}
-        /> */}
-
-        {/* <label>select category</label> */}
-        <select name="category" onChange={handleChange}>
+        <br />
+        <label>category</label>
+        <br />
+        <select name="category" onChange={(e) => categChange(e)}>
           <option disabled>select category</option>
           {categories &&
-            categories.map((x, y) => (
-              <option onClick={() => console.log(x._id)} key={y}>
-                {x.name}
+            categories.map((category, index) => (
+              <option onClick={(e) => console.log(e.name)} key={index}>
+                {category.name}
               </option>
             ))}
         </select>
+        <br />
+        <label>description</label>
+        <br />
         <input
           type="text"
           name="description"
@@ -123,6 +142,8 @@ export default function AddProduct() {
         <label>file</label>
         <br />
         <input type="file" onChange={changeHandler} />
+        <br />
+        <br />
         <input type="submit" onClick={uploadHandler} value={"Upload"} />
       </form>
     </div>

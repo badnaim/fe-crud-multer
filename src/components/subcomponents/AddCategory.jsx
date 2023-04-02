@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { ProductsContext } from "../../context/ProductsContext";
 import "../../styles/addCategory.css";
 
 export default function AddCategory() {
@@ -7,13 +8,15 @@ export default function AddCategory() {
     name: "",
   });
 
-  console.log(categoryName);
-
-  // console.log("categoryName", JSON.stringify(categoryName));
   function nameHandler(e) {
     setCategoryName({ [e.target.name]: e.target.value });
-    console.log(categoryName);
   }
+  console.log(categoryName);
+
+  function imageHandler(e) {
+    setCategoryImage(e.target.files[0]);
+  }
+  console.log(categoryImage);
 
   async function categoryUploader(e) {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function AddCategory() {
       method: "POST",
       body: categData,
     }).then((res) => {
-      console.log(res, "res");
+      console.log("create request sent");
     });
     setCategoryName("");
     setCategoryImage("");
@@ -33,19 +36,28 @@ export default function AddCategory() {
 
   return (
     <div className="addCategory">
+      <div><h4>Create category</h4></div>
       <form>
+        <br />
+        <label>category name</label>
+        <br />
         <input
           type="text"
           name="name"
           placeholder="category name"
           onChange={nameHandler}
-          // value={categoryName}
         />
+        <br />
+        <br />
+        <label>gategory image</label>
+        <br />
         <input
           type="file"
           placeholder="category image"
-          onChange={(e) => setCategoryImage(e.target.files[0])}
+          onChange={imageHandler}
         />
+        <br />
+        <br />
         <input
           type="submit"
           value={"Create category"}
